@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>City Population Bar Chart</title>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-</head>
-
+    
     <head>
       
     <img src="University of Surrey logo.png" alt="Banner" width="1200" height="300">
@@ -74,37 +71,6 @@ const d = new Date();
 document.getElementById("date&time").innerHTML = d;
 </script>
 
-<body>
-    <div id="chart_div" style="width: 600px; height: 400px;"></div>
-
-    <script>
-        google.charts.load('current', { 'packages': ['corechart'] });
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'City');
-            data.addColumn('number', 'Population');
-
-            data.addRows([
-                ['London', 867313],
-                ['Birmingham', 1111307],
-                ['Edinburgh', 464990]
-            ]);
-            
-            var options = {
-                title: 'City Populations (Bar Chart)',
-                hAxis: { title: 'Population' },
-                vAxis: { title: 'City' },
-                bars: 'vertical',
-                legend: 'none'
-            };
-
-            var chart= new google.visualization.Barchart(document.getElementByld('chart_div'));
-            chart.draw(data, options);
-        }
-    </script>
-</body>
-</html>    
     
 <h3 id="Abstract">Abstract</h3>  
     <p class="ex1">
