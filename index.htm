@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pie Chart Example</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>My Daily Activities</title>
+    <script> type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
-    <canvas id="myPieChart"></canvas>
+    <div id="chart_div"></div>
 
-    <script>
-        // Your pie chart data
-        var data = {
-            labels: ['Label 1', 'Label 2', 'Label 3'],
-            datasets: [{
-                data: [30, 50, 20],
-                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-            }]
+    <script type="text/javascript">
+        google.charts.load(‘current’, { ‘packages’ : [‘corechart’] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                [‘Task’, ‘Hours per Day’],
+                [‘Work’, 8],
+                [‘Sleep’, 8],
+                [‘Eat’, 2],
+                [‘Study’, 4],
+                [‘Exercise’, 2]
+            ]);
+            var options = {
+                title: ‘My Daily Activities’
         };
-
-        // Get the context of the canvas element
-        var ctx = document.getElementById('myPieChart').getContext('2d');
-
-        // Create the pie chart
-        var myPieChart = new Chart(ctx, {
-            type: 'pie',
-            data: data,
-        });
+        var chart = new google.visualization.PieChart(document.getElementById(‘chart_div’));
+        chart.draw(data, options);
+        }
     </script>
 </body>
 </html>
-<head>
+    
+    
   
     <head>
       
