@@ -5,24 +5,31 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
-    <div id="chart_div"></div>
-    <script type="text/javascript"> 
+    <div id="chart_div" style="width: 600px; height: 400px;"></div>
+
+    <script>
         google.charts.load('current', { 'packages': ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
-            var data =  google.visualization.arrayToDataTable([
-                ['Task','Hours per day'],
-                ['Work',8],
-                ['Sleep',8],
-                ['Eat',2],
-                ['Study',4],
-                ['Excersise',2]
-    ]);
-            var options={
-                title: 'My Daily Activities'
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'City');
+            data.addColumn('number', 'Population');
+
+            data.addRows([
+                ['London', 867313],
+                ['Birmingham', 1111307],
+                ['Edinburgh', 464990]
+            ]);
+            
+            var options = {
+                title: 'City Populations (Bar Chart)',
+                hAxis: { title: 'Population' },
+                vAxis: { title: 'City' },
+                bars: 'vertical',
+                legend: 'none'
             };
 
-            var chart=new google.visualisation.PieChart(document.getElementByld('chart_div'));
+            var chart= new google.visualization.Barchart(document.getElementByld('chart_div'));
             chart.draw(data, options);
         }
     </script>
